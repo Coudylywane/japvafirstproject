@@ -6,6 +6,12 @@ public class Chambre {
     private Integer id ;
     private Integer numCh ;
     private Integer numEtage ;
+    private EtatChambre etat ;
+    private int nbre;
+
+
+
+
     public Integer getNumEtage() {
         return numEtage;
     }
@@ -29,7 +35,7 @@ public class Chambre {
     }
 
 
-    private EtatChambre etat ;
+    
 
 
     
@@ -40,6 +46,9 @@ public class Chambre {
     public Chambre(Integer numCh, Integer numEtage) {
         this.numCh = numCh;
         this.numEtage = numEtage;
+        nbre++;
+        id=nbre;
+        etat = EtatChambre.DISPONIBLE;
     }
 
 
@@ -54,6 +63,10 @@ public class Chambre {
 
 
     public Chambre() {
+        nbre++;
+        id=nbre;
+        etat = EtatChambre.DISPONIBLE;
+
     }
 
 

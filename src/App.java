@@ -1,11 +1,12 @@
 import java.util.Scanner;
 
 import models.Chambre;
+import models.EtatChambre;
 import services.ServiceList;
 
 public class App {
     public static void main(String[] args) throws Exception {
-        Scanner input = new Scanner(System.in);
+        Scanner scanner = new Scanner(System.in);
         ServiceList service = new ServiceList();
 
         int choix ;
@@ -21,16 +22,16 @@ public class App {
            System.out.println("Faites votre choix"); 
 
 
-           choix = input.nextInt();
+           choix = scanner.nextInt();
 
 
            switch (choix) {
                case 1:
                    System.out.println("Entrer le numero de la chambre");
-                   numchambre = input.nextInt();
+                   numchambre = scanner.nextInt();
 
                    System.out.println("Entrer le numero de l'etage");
-                   numEtage = input.nextInt();
+                   numEtage = scanner.nextInt();
 
                   /*  chambre = new Chambre();
                    chambre.setNumCh(numchambre);
@@ -42,11 +43,18 @@ public class App {
                    break;
 
                 case 2:
-                   
+                   service.listerChambre(EtatChambre.DISPONIBLE);
                    break;
                 
                 case 3:
-                   
+                System.out.println("Entrer l'id de la chambre");
+                int id = scanner.nextInt();
+                    chambre = service.rechercherChambre(id);
+                    if (chambre == null) {
+                        System.out.println("Chambre inexistante");
+                    }else{
+                        service.archiverChambre(chambre);
+                    }
                    break;
            
                default:

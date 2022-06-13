@@ -56,6 +56,16 @@ public class ServiceList implements IService{
     }
 
     @Override
+    public void listerChambre(EtatChambre etat) {
+        for (Chambre chambre : bdChambres) {
+            if (chambre.getEtat()== etat) {
+                System.out.println(chambre);
+            }
+        }
+        
+    }
+
+    @Override
     public void archiverChambre(Chambre chambre) {
         chambre.setEtat(EtatChambre.ARCHIVER);
     }
@@ -101,5 +111,9 @@ public class ServiceList implements IService{
             System.out.println(pavillon);
         }        
     }
+
+
+
+    
     
 }

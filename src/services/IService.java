@@ -3,6 +3,7 @@ package services;
 import java.util.ArrayList;
 
 import models.Chambre;
+import models.EtatChambre;
 import models.Pavillon;
 
 public interface IService {
@@ -11,8 +12,12 @@ public interface IService {
     public void ajouterChambre(Chambre chambre , Pavillon pavillon);
 
     public Chambre rechercherChambre(int id);
+
     public void modifierChambre(Chambre chambre);
+    
     public void listerChambre();
+    public void listerChambre(EtatChambre etat);
+
     public void archiverChambre(Chambre chambre);
 
     public void ajouterPavillon(Pavillon pavillon);
